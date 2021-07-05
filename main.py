@@ -30,8 +30,8 @@ def album_length(music_collection):
         try:
             metadata = audio_metadata.load(item)
             duration += metadata.streaminfo['duration']
-        except:
-            print("exception of file", item)
+        except audio_metadata.FormatError:
+            print("Error in output file", item)
             continue
     return duration
 
